@@ -1,5 +1,6 @@
 package day07.Ex01_익명객체;
 
+
 public class AnonymousPerson {
 	
 	// 익명 자식 객체 생성

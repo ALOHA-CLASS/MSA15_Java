@@ -12,12 +12,12 @@ public class CalendarEx {
 		
 		// 자바 프로그래밍 마지막 수업일
 		Calendar test = Calendar.getInstance();
-		test.set(2025, Calendar.APRIL, 2);		// 2025년 4월 02일로 날짜 지정
+		test.set(2025, Calendar.NOVEMBER, 10);		// 2025년 11월 10일로 날짜 지정
 		printCalendar("자바 마지막 수업일(연/월/일)", test);
 		
 		// 종강일
 		Calendar lastDay = Calendar.getInstance();
-		lastDay.set(2025, Calendar.SEPTEMBER, 16, 18, 20, 0);
+		lastDay.set(2026, Calendar.APRIL, 20, 18, 20, 0);
 		printCalendar("종강일 : ", lastDay);
 		
 		// 오늘로부터 종강일 까지 D-Day
@@ -41,11 +41,11 @@ public class CalendarEx {
 		long lastD = lastT / (1000 * 60 * 60 * 24);
 		
 		System.out.println("1970년 1월 1일 ~ 오늘 : " + nowD);
-		System.out.println("1970년 1월 1일 ~ 2025년 09월 16일 : " + lastD);
+		System.out.println("1970년 1월 1일 ~ 2026년 04월 20일 : " + lastD);
 		
 		// 내가 태어난 지 몇 일이 되었는지 구해보기
 		Calendar birth = Calendar.getInstance();
-		birth.set( 1999, Calendar.APRIL, 10 );		// 내 생일로 날짜 지정하기 : 1999/04/10
+		birth.set( 2000, Calendar.OCTOBER, 10 );		// 내 생일로 날짜 지정하기 : 2004/10/10
 		long birthD = birth.getTimeInMillis() / (1000 * 60 * 60 * 24); // 내 생일 ms 로 반환하고 일 단위로 환산하기
 		long afterBirth = nowD - birthD;			// 오늘 - 생일 
 		System.out.println("생후 " + afterBirth + "일이 지났습니다.");

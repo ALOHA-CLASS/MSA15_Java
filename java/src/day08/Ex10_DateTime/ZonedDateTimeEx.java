@@ -22,7 +22,7 @@ public class ZonedDateTimeEx {
 		LocalDate nowDate = LocalDate.now();
 		System.out.println("현재 날짜 : " + nowDate);
 		
-		LocalDate endDate = LocalDate.of(2025, 9, 16);
+		LocalDate endDate = LocalDate.of(2026, 4, 20);
 		System.out.println("종료 날짜 : " + endDate);
 		
 		// LocalTime		: 시간을 다루는 클래스

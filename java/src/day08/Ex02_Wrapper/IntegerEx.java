@@ -36,6 +36,7 @@ public class IntegerEx {
 		System.out.println("객체로 생성한 Integer : " + i);
 		System.out.println("기본 타입 int : " + value2 );
 		
+		
 	}
 }
 

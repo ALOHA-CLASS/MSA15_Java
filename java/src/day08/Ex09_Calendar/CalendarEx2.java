@@ -50,7 +50,7 @@ public class CalendarEx2 {
 		Calendar cal2 = Calendar.getInstance();
 		cal2.roll(Calendar.DAY_OF_MONTH, -50);
 		String before50Day2 = sdf.format(cal2.getTime());
-		System.out.println("50일 전 : " + before50Day2);
+		System.out.println("50일 후 : " + before50Day2);
 		
 		
 		// add(날짜필드, 값)  : 해당 날짜 데이터에서 날짜 필드의 값을 증감시키는 메소드

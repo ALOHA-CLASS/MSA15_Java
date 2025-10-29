@@ -23,8 +23,8 @@ public class DateEx {
 		String nowStr = sdf.format(now);
 		System.out.println(nowStr);
 		
-		String day1 = "2025/03/10"; // 개강
-		String day2 = "2025/09/16"; // 종강
+		String day1 = "2025/10/20"; // 개강
+		String day2 = "2026/04/20"; // 종강
 		
 		Date date1 = new SimpleDateFormat("yyyy/MM/dd").parse(day1);
 		Date date2 = new SimpleDateFormat("yyyy/MM/dd").parse(day2);
