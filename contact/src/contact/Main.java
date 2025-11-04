@@ -9,6 +9,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Main {
 	
@@ -17,7 +19,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		contactList = load();		// 연락처 파일 불러오기
+		Sequence sequence = new Sequence();		// 시퀀스 객체 생성
+		contactList = load();					// 연락처 파일 불러오기
 		while(true) {
 			System.out.println(":::::::::: 연락처 프로그램 :::::::::");
 			System.out.println("1. 연락처 추가");
@@ -41,7 +44,7 @@ public class Main {
 						String phone = sc.nextLine();
 						System.out.print("메모 : ");
 						String memo = sc.nextLine();
-						int no = contactList.size() + 1;
+						int no = sequence.nextNo();		// 저장된 시퀀스 사용
 						add(new Person(no, name, phone, memo));
 						break;
 				case 2: // 연락처 수정
@@ -88,7 +91,23 @@ public class Main {
 	
 	// 연락처 삭제
 	private static void delete(int deleteNo) {
-		contactList.remove(deleteNo-1);
+		// index 기준으로 삭제
+		// contactList.remove(deleteNo-1);
+		// 시퀀스 기준으로 삭제
+		// - 스트림
+		contactList = contactList.stream()
+								 .filter( contact -> contact.getNo() != deleteNo )
+								 .collect( Collectors.toList() );
+		// - 반복문
+//		Person deleteContact = null;
+//		for (int i = 0; i < contactList.size(); i++) {
+//			Person contact = contactList.get(i);
+//			if( contact.getNo() == deleteNo ) {
+//				deleteContact = contact;
+//				break;
+//			}
+//		}
+//		contactList.remove(deleteContact);
 		save(contactList);
 	}
 	
