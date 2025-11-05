@@ -1,0 +1,6 @@
+INDEX VERSION 1.134+E:\MSA15\JavaFX\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3076146264.index
+3719074253.index
+252781151.index
+336879340.index
