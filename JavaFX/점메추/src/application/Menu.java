@@ -1,0 +1,19 @@
+package application;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Menu {
+	
+	String menu;		// 메뉴 이름
+	String img;			// 이미지 경로
+
+}
+
+
+
