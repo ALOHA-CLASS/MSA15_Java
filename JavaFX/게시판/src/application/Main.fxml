@@ -21,7 +21,7 @@
         <columns>
           <TableColumn fx:id="colCheck" prefWidth="40.0">
                <graphic>
-                  <CheckBox mnemonicParsing="false" />
+                  <CheckBox fx:id="checkbox" mnemonicParsing="false" onAction="#check" />
                </graphic>
             </TableColumn>
           <TableColumn fx:id="colNo" prefWidth="60.0" text="번호" />

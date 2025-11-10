@@ -2,6 +2,7 @@ package application.DTO;
 
 import java.util.Date;
 
+import javafx.scene.control.CheckBox;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,11 +20,12 @@ import lombok.RequiredArgsConstructor;
  * 수정일자  		updatedAt		updated_dt
  */
 @Data
-@NoArgsConstructor
+// @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class Board {
 	
+	private CheckBox check;
 	private int no;
 	@NonNull private String title;
 	@NonNull private String writer;
@@ -31,7 +33,17 @@ public class Board {
 	private Date createdAt;
 	private Date updatedAt;
 	
+	public Board() {
+		this.check = new CheckBox();
+	}
+	
 }
+
+
+
+
+
+
 
 
 

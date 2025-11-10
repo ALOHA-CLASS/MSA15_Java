@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,13 +20,15 @@ import javafx.scene.input.MouseEvent;
 
 public class MainController {
 
+	@FXML CheckBox checkbox;
 	@FXML private TableView<Board> tableView;
-    @FXML private TableColumn<Board, Boolean> colCheck;
+    @FXML private TableColumn<Board, CheckBox> colCheck;
     @FXML private TableColumn<Board, Integer> colNo;
     @FXML private TableColumn<Board, String> colTitle;
     @FXML private TableColumn<Board, String> colWriter;
     @FXML private TableColumn<Board, String> colCreatedAt;
     @FXML private TableColumn<Board, String> colUpdatedAt;
+
     
     // 게시글 목록 데이터
     List<Board> boardList = null;
@@ -37,6 +40,7 @@ public class MainController {
     	// 게시글 목록 요청
     	boardList = boardService.list();
     	// TableColumn 에 Board 객체 매핑하기
+    	colCheck.setCellValueFactory( new PropertyValueFactory<>("check") );
     	colNo.setCellValueFactory( new PropertyValueFactory<>("no") );
     	colTitle.setCellValueFactory( new PropertyValueFactory<>("title") );
     	colWriter.setCellValueFactory( new PropertyValueFactory<>("writer") );
@@ -80,8 +84,55 @@ public class MainController {
     
     @FXML
     void delete(ActionEvent event) {
-    	// TODO : 선택 삭제
+    	// 선택 삭제
+    	ObservableList<Board> list = tableView.getItems();
+    	int count = 0;
+    	for (int i = 0; i < list.size(); i++) {
+			Board board = list.get(i);
+			// 체크 여부 확인
+			if( board.getCheck().isSelected() ) {
+				count += boardService.delete( board.getNo() );
+			}
+		}
+    	System.out.println(count + "건의 게시글 삭제 완료!");
+    	if( count > 0 ) {
+    		boardList = boardService.list();
+    		ObservableList<Board> newList = FXCollections.observableArrayList(boardList);
+    		tableView.setItems(newList);
+    	}
+    }
+    
+    @FXML
+    void check(ActionEvent event) {
+    	ObservableList<Board> list = tableView.getItems();
     	
+    	if( checkbox.isSelected() ) {
+    		System.out.println("전체 체크");
+        	for (int i = 0; i < list.size(); i++) {
+    			Board board = list.get(i);
+    			board.getCheck().setSelected(true); // 체크
+    		}
+    		
+    	} else {
+    		System.out.println("체크 해제");
+        	for (int i = 0; i < list.size(); i++) {
+    			Board board = list.get(i);
+    			board.getCheck().setSelected(false); // 체크해제
+    		}
+    	}
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

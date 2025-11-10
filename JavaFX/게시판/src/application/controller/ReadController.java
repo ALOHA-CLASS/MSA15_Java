@@ -37,7 +37,7 @@ public class ReadController implements DataReceiver {
 
     @FXML
     void update(ActionEvent event) {
-    	StageManager.show("UI/Update");	// 게시글 수정 화면으로 이동
+    	StageManager.show("UI/Update", this.no);	// 게시글 수정 화면으로 이동
     }
 
 	@Override
@@ -46,3 +46,6 @@ public class ReadController implements DataReceiver {
 	}
 
 }
+
+
+
