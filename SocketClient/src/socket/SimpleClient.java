@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class SimpleClient {
 	
 	public static void main(String[] args) {
-		String serverAddress = "localhost";
+		String serverAddress = "192.168.30.19";		// localhost
 		int port = 9999;
 		
 		try ( 
